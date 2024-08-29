@@ -42,7 +42,7 @@ const PhotoPage = () => {
     try {
       setPhotos([]);
 
-      const response = await axios.post('/api/image', values);
+      const response = await axios.post('/api/image', values, { timeout: 100000 });
 
       const urls = response.data.map((image: { url: string }) => image.url);
 
